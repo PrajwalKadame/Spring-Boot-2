@@ -19,6 +19,8 @@ public class Emp3Controller {
 	
 	 @PostMapping
 	 public String addValues(@RequestBody Emp3 emp) {
+		 
+		 System.out.println("Test");
 		 emp3Service.createEmp3(emp);
 		 return "Inserted";
 	 }
