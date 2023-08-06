@@ -24,9 +24,7 @@ public class Emp3Controller {
 		 System.out.println("Test1");
 		  System.out.println("Test2");
 		 emp3Service.createEmp3(emp);
-		  System.out.println("Test0000000");
-		 System.out.println("Test10000000");
-		  System.out.println("Test200000");
+
 		 return "Inserted";
 	 }
 		
