@@ -21,6 +21,7 @@ public class Emp3Controller {
 	 public String addValues(@RequestBody Emp3 emp) {
 		 
 		 System.out.println("Test");
+		 System.out.println("Test1");
 		 emp3Service.createEmp3(emp);
 		 return "Inserted";
 	 }
