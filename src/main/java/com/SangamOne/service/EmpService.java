@@ -32,7 +32,11 @@ public class EmpService {
 			return e.get();
 		}
 		return null;
+	}
+	
 		
+		public void deleteEmp(int id) {
+			repo.deleteById(id);
 	}
 	
 }

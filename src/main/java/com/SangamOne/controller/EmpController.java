@@ -21,11 +21,11 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class EmpController {
 	@Autowired
-	EmpService empService;
+	EmpService service;
 	
 	@GetMapping("/")
 	public String home(Model m) {
-		List<Employee> emp=empService.getAllEmp();
+		List<Employee> emp=service.getAllEmp();
 		m.addAttribute("emp", emp);
 		return "Index";
 	}
@@ -38,16 +38,31 @@ public class EmpController {
 	@PostMapping("/register")
 	public String empRegister(@ModelAttribute Employee e, HttpSession session) {
 	System.out.println(e);
-	empService.addEmp(e);
+	service.addEmp(e);
 	session.setAttribute("msg", "Emp added successfully...");
 	return "redirect:/";
 	}
 	
 	@GetMapping("/edit{id}")
 	public String edit(@PathVariable int id, Model m) {
-		Employee e=empService.getEmpId(id);
+		Employee e=service.getEmpId(id);
 		m.addAttribute("emp", e);
 		return "edit";
+	}
+	
+	@PostMapping("/update")
+	public String updateEmp(@ModelAttribute Employee e, HttpSession session) {
+		service.addEmp(e);
+		session.setAttribute("msg", "Emp Data Update Sucessfully..");
+		return "redirect:/";
+	}
+
+	@GetMapping("/delete/{id}")
+	public String deleteEMp(@PathVariable int id, HttpSession session) {
+
+		service.deleteEmp(id);
+		session.setAttribute("msg", "Emp Data Delete Sucessfully..");
+		return "redirect:/";
 	}
 
 }
